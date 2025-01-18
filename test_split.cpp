@@ -55,7 +55,18 @@ int main(int argc, char* argv[])
 
     printList(list);
     std::cout << "main list" << std::endl;
+
+    if (list == nullptr) {
+        std::cout << "null!";
+    }
 #endif
+
+
+
+
+
+
+
 
     delete [] test;
 
