@@ -30,12 +30,12 @@ std::vector<int> intVecFromList(Node*& in);
 
 int main(int argc, char* argv[])
 {
-    // int* test = new int[6] {5, 4, 3, 2, 1, 0};
-    //
-    // Node* list = makeList(test, 6);
-    //
-    // Node* odd;
-    // Node* even = odd = nullptr;
+    int* test = new int[6] {5, 4, 3, 2, 1, 0};
+
+    Node* list = makeList(test, 6);
+
+    Node* odd;
+    Node* even = odd = nullptr;
 
 #ifdef DEBUG
     printList(list);
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 
 #endif
 
-    // split(list, odd, even);
+    split(list, odd, even);
 
 #ifdef DEBUG
 
@@ -57,65 +57,68 @@ int main(int argc, char* argv[])
     std::cout << "main list" << std::endl;
 #endif
 
-    // delete [] test;
-    //
-    // deleteList(list);
-    // deleteList(odd);
-    // deleteList(even);
+    delete [] test;
 
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    deleteList(list);
+    deleteList(odd);
+    deleteList(even);
+
+    return 0;
+
+    // ::testing::InitGoogleTest(&argc, argv);
+    // return RUN_ALL_TESTS();
 }
 
 
+// I was messing around with gtests in Clion but now g++ is yelling at me lol
 
-TEST(SplitTests, allEmpty)
-{
-
-    Node* inList = nullptr;
-
-    Node* odds = nullptr;
-    Node* evens = nullptr;
-
-    split(inList, odds, evens);
-
-    std::vector<int> emptyVec;
-
-    std::vector<int> oddsVec = intVecFromList(odds);
-    std::vector<int> evensVec = intVecFromList(evens);
-
-
-
-    ASSERT_EQ(oddsVec, emptyVec) << "Odds are not empty!";
-    ASSERT_EQ(evensVec, emptyVec) << "Evens are not empty!";
-
-
-}
-
-TEST(SplitTests, noEvens) {
-    Node* inList = nullptr;
-
-    int* listWithNoEvens = new int[4]{1, 3, 5, 7};
-
-    inList = makeList(listWithNoEvens, 4);
-
-    Node* odds = nullptr;
-    Node* evens = nullptr;
-
-    split(inList, odds, evens);
-
-
-    ASSERT_EQ(evens, nullptr) << "No evens were found!";
-    ASSERT_NE(odds, nullptr) << "There were odds!";
-
-
-    deleteList(inList);
-    deleteList(odds);
-    deleteList(evens);
-    delete [] listWithNoEvens;
-
-
-}
+// TEST(SplitTests, allEmpty)
+// {
+//
+//     Node* inList = nullptr;
+//
+//     Node* odds = nullptr;
+//     Node* evens = nullptr;
+//
+//     split(inList, odds, evens);
+//
+//     std::vector<int> emptyVec;
+//
+//     std::vector<int> oddsVec = intVecFromList(odds);
+//     std::vector<int> evensVec = intVecFromList(evens);
+//
+//
+//
+//     ASSERT_EQ(oddsVec, emptyVec) << "Odds are not empty!";
+//     ASSERT_EQ(evensVec, emptyVec) << "Evens are not empty!";
+//
+//
+// }
+//
+// TEST(SplitTests, noEvens) {
+//     Node* inList = nullptr;
+//
+//     int* listWithNoEvens = new int[4]{1, 3, 5, 7};
+//
+//     inList = makeList(listWithNoEvens, 4);
+//
+//     Node* odds = nullptr;
+//     Node* evens = nullptr;
+//
+//     split(inList, odds, evens);
+//
+//
+//     ASSERT_EQ(evens, nullptr) << "No evens were found!";
+//     ASSERT_NE(odds, nullptr) << "There were odds!";
+//
+//
+//     deleteList(inList);
+//     deleteList(odds);
+//     deleteList(evens);
+//     delete [] listWithNoEvens;
+//
+//
+// }
 
 
 
