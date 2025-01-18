@@ -59,13 +59,13 @@ void split(Node*& in, Node*& odds, Node*& evens)
 /* If you needed a helper function, write it here */
 void addToEnd(Node* in, Node* toAdd) {
 
-  Node* cur = in;
-  while (true ) {
-    if (cur ->next == nullptr) {
-      break;
-    }
-    cur = cur -> next;
+  if (in->next == nullptr) {
+
+    in->next = toAdd;
+
+    return;
+
   }
 
-  cur -> next = toAdd;
+  addToEnd(in->next, toAdd);
 }
