@@ -4,4 +4,4 @@ test_split
 test_ulliststr
 *.o
 *.exe
-cmake-build-debug-csci104/
+/cmake-build-debug-csci104
