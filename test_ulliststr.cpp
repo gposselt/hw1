@@ -9,5 +9,13 @@
 
 int main(int argc, char* argv[])
 {
+    auto testing = ("WHY HELLO THERE!!!");
+
+    ULListStr testString;
+    testString.push_back(testing);
+
+    std::cout << testString.get(0) << std::endl;
+
+
 
 }
