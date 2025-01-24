@@ -3,3 +3,5 @@ grade_ulliststr
 test_split
 test_ulliststr
 *.o
+*.exe
+cmake-build-debug-csci104/
